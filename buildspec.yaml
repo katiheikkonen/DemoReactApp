@@ -13,7 +13,7 @@ phases:
       - echo "pre-build käynnissä"
   build:
     commands:
-      - aws s3 sync build/ s3://kati-cicd-bucket”
+      - aws s3 sync /build/ s3://kati-cicd-bucket”
       - echo "build käynnissä"
   post_build:
     commands:
