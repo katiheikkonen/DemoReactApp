@@ -1,0 +1,22 @@
+version: 0.2
+
+env:
+  variables:
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo "asennetaan"
+  pre_build:
+    commands:
+      - npm install
+      - npm run build
+      - echo "pre-build käynnissä"
+  build:
+    commands:
+      - aws s3 sync build/ s3://kati-cicd-bucket/*”
+      - echo "build käynnissä"
+  post_build:
+    commands:
+      - echo "post-build käynnissä"
